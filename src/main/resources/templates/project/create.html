@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1>Home Redecorator</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<h2 align="center" th:text="${title}">Default Title</h2>
+
+<form method="post" th:object="${project}">
+    <div class="form-group">
+        <label th:for="name">Project Name</label>
+        <input type="text" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="goal">Project Goal</label>
+        <input type="text" th:field="*{goal}" />
+        <span th:errors="*{goal}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="budget">Project Budget</label>
+        <input type="text" th:field="*{budget}" />
+        <span th:errors="*{budget}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1>Home Redecorator</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<h2 align="center" th:text="${title}">Default Title</h2>
+
+<p th:unless="${projects} and ${projects.size()}">No current projects</p>
+
+<!--
+<div class="form-check">
+    <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="" checked="">
+        This will be a Project option
+    </label>
+</div> -->
+<div class="form-group">
+<ul>
+    <li th:each="project : ${projects}">
+        <a th:text="${project.name}"></a>
+    </li>
+</ul>
+    <!-- make list as links when summary page is done OR button
+    <input type="submit" value="Go"> -->
+</div>
+
+
+<br />
+<a href="/project/create"> OR Create a New Project</a>
+
+
+</body>
+</html>
