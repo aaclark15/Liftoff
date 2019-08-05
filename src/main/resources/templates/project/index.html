@@ -15,17 +15,23 @@
 <p th:unless="${projects} and ${projects.size()}">No current projects</p>
 
 
-<!--add a link to the button to take them to the summary page -->
+<!--need to turn back into button when they work -->
 </div>
+<div class="form-group">
+    <ul>
+        <li th:each="project : ${projects}">
+            <a th:href="'/category/summary/'+ ${project.id}"
+            th:text=${project.name}></a>
+        </li>
+    </ul>
+</div>
+<!--
 <div class="form-group">
     <span th:each="project : ${projects}">
     <button type="button" class="btn btn-primary btn-lg btn-block"
-        th:text=${project.name}></button>
+            th:text=${project.name}></button>
     <br /></span>
-</div>
-
-
-
+</div> -->
 
 
 </body>

@@ -1,11 +1,13 @@
-package com.example.liftoff.forms;
+package com.example.liftoff.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.example.liftoff.models.Category;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -24,6 +26,10 @@ public class Project {
 
     @NotNull
     private double budget;
+
+    @OneToMany
+    @JoinColumn(name = "project_id")
+    private List<Category> category = new ArrayList<>();
 
     //constructors
     public Project(String name, String goal, double budget) {
@@ -62,5 +68,13 @@ public class Project {
 
     public void setBudget(double budget) {
         this.budget = budget;
+    }
+
+    public List<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
     }
 }

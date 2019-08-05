@@ -1,7 +1,7 @@
 package com.example.liftoff.models.data;
 
 
-import com.example.liftoff.forms.Project;
+import com.example.liftoff.models.Project;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

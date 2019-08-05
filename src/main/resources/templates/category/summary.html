@@ -9,7 +9,8 @@
 
 <h2 align="center" th:text="${title}">Default Title</h2>
 <br />
-<h5 align="center"><a href="/project/addCat"> OR Create a New Category</a></h5>
+<h5 align="center"><a th:href="'/category/addCat/' + ${projectId}">
+    OR Create a New Category</a></h5>
 <br />
 
 <table class="table">

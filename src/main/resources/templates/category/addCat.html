@@ -9,14 +9,15 @@
 
 <h2 align="center" th:text="${title}">Default Title</h2>
 
-<form method="post" th:object="${category}">
+<form method="post" th:object="${category}" >
     <div class="form-group">
         <label th:for="name">Category Name</label>
-        <input type="text" th:field="*{name}" />
+        <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
     </div>
 
-    <input type="submit" value="Save">
+    <input type="hidden" name="projectId" th:value="${projectId}">
+    <input type="submit" value="Add Category">
 </form>
 
 </body>
