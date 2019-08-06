@@ -42,6 +42,7 @@ public class CategoryController {
         return "category/summary";
     }
 
+
     //renders add Category page
     @RequestMapping(value="addCat/{projectId}", method = RequestMethod.GET)
     public String addCat(Model model, @PathVariable int projectId) {

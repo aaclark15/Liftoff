@@ -1,11 +1,10 @@
 package com.example.liftoff.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Category {
@@ -20,6 +19,10 @@ public class Category {
 
     @ManyToOne
     private Project project;
+
+    @OneToMany
+    @JoinColumn(name = "category_id")
+    private List<Item> items = new ArrayList<>();
 
     //constructors
     public Category(String name) {
@@ -47,5 +50,13 @@ public class Category {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }

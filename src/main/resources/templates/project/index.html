@@ -16,6 +16,7 @@
 
 
 <!--need to turn back into button when they work -->
+
 </div>
 <div class="form-group">
     <ul>
@@ -25,11 +26,12 @@
         </li>
     </ul>
 </div>
+
 <!--
 <div class="form-group">
     <span th:each="project : ${projects}">
-    <button type="button" class="btn btn-primary btn-lg btn-block"
-            th:text=${project.name}></button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" th:text=${project.name}>
+            <a th:href="'/category/summary/'+ ${project.id}" ></a></button>
     <br /></span>
 </div> -->
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1>Home Redecorator</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<h2 align="center" th:text="${title}">Default Title</h2>
+
+<form method="post" th:object="${item}" >
+    <div class="form-group">
+        <label th:for="name">Item Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="store">Store</label>
+        <input class="form-control" th:field="*{store}" />
+        <span th:errors="*{store}" class="error"></span>
+    </div>
+    <div class="form-group">
+    <label th:for="price">Item Price</label>
+    <input class="form-control" th:field="*{price}" />
+    </div>
+    <div class="form-group">
+        <label th:for="color">Item Color</label>
+        <input class="form-control" th:field="*{color}" />
+    </div>
+    <div class="form-group">
+        <label th:for="size">Item Size</label>
+        <input class="form-control" th:field="*{size}" />
+    </div>
+    <div class="form-group">
+        <label th:for="details">Item Details</label>
+        <input class="form-control" th:field="*{details}" />
+    </div>
+    <div class="form-group">
+        <label th:for="picture">Item Picture</label>
+        <input class="form-control" th:field="*{picture}" />
+    </div>
+
+    <input type="hidden" name="catId" th:value="${catId}">
+    <input type="submit" value="Add Item">
+</form>
+
+</body>
+</html>

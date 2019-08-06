@@ -10,15 +10,34 @@
 <h2 align="center" th:text="${title}">Default Title</h2>
 <br />
 <h5 align="center"><a th:href="'/category/addCat/' + ${projectId}">
-    OR Create a New Category</a></h5>
+    Create a New Category</a></h5>
 <br />
+
+<!--
+<table class="table">
+    <tr>
+        <th>Category</th>
+        <th>Select One</th>
+    </tr>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.name}"></td>
+        <td><input type="radio" name="catId" th:value="${category.id}"
+            th:id="${category.id}" />
+            </td>
+    </tr>
+</table>
+
+<button type="submit" value="add" name="action">Add Item</button>
+<button type="submit" value="compare" name="action">Compare Items</button>
+<button type="submit" value="remove" name="action">Remove Category</button>-->
+
 
 <table class="table">
     <tr th:each="category : ${categories}">
         <td th:text="${category.name}"></td>
-        <td><a href="/project/add">Add Item</a></td>
+        <td><a th:href="'/item/addItem/'+ ${category.id}">Add Item</a></td>
         <td><a href="/project/compare">Compare Items</a></td>
-        <td>Remove Category</td> <!--change when determine remove code -->
+        <td>Remove Category</td> <!--change when do remove code -->
     </tr>
 </table>
 
