@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1>Home Redecorator</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<h2 align="center" th:text="${title}">Default Title</h2>
+<br />
+<h6 align="center"><a th:href="'/category/summary/'+ ${projectId}">Back to Summary</a> |
+    <a th:href="'/item/addItem/' + ${catId}">Add Another Item</a> </h6>
+<br />
+
+<table class="table">
+    <tr th:each="item : ${items}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

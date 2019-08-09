@@ -36,7 +36,7 @@
     <tr th:each="category : ${categories}">
         <td th:text="${category.name}"></td>
         <td><a th:href="'/item/addItem/'+ ${category.id}">Add Item</a></td>
-        <td><a href="/project/compare">Compare Items</a></td>
+        <td><a th:href="'/item/compare/'+ ${category.id}">Compare Items</a></td>
         <td>Remove Category</td> <!--change when do remove code -->
     </tr>
 </table>

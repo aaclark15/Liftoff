@@ -1,11 +1,10 @@
 package com.example.liftoff.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Item {
@@ -26,24 +25,25 @@ public class Item {
     private String color;
     private String size;
     private String details;
-    private String picture; //change when learn how to save pics
-
     private boolean purchased;
     private double purch_price;
+
+    @OneToMany
+    @JoinColumn(name = "item_id")
+    private List<Pictures> pictures = new ArrayList<>();
 
     @ManyToOne
     private Category category;
 
     //contructors
     public Item(String name, String store, double price, String color, String size,
-                String details, String picture, boolean purchased, double purch_price) {
+                String details, boolean purchased, double purch_price) {
         this.name = name;
         this.store = store;
         this.price = price;
         this.color = color;
         this.size = size;
         this.details = details;
-        this.picture = picture;
         this.purchased = purchased;
         this.purch_price = purch_price;
     }
@@ -107,14 +107,6 @@ public class Item {
         this.details = details;
     }
 
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
     public boolean isPurchased() {
         return purchased;
     }
@@ -137,5 +129,13 @@ public class Item {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<Pictures> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Pictures> pictures) {
+        this.pictures = pictures;
     }
 }

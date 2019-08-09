@@ -67,8 +67,25 @@ public class ItemController {
             newItem.setCategory(cat.get());
             itemDao.save(newItem);
         }
-        return "category/summary";
-        //return "redirect:/item/compare/" + catId; - change to this when compare form is done
+        return "redirect:/item/compare/" + catId;
+    }
+
+    //renders comparison page
+    @RequestMapping(value="compare/{catId}", method = RequestMethod.GET)
+    public String compare(Model model, @PathVariable int catId) {
+
+        Optional<Category> cat = categoryDao.findById(catId);
+        if(cat.isPresent()) {
+            Category category = cat.get();
+            Project project = category.getProject();
+            List<Item> items = category.getItems();
+            model.addAttribute("items", items);
+            model.addAttribute("title", "Compare Items for: " + category.getName());
+            model.addAttribute("catId", catId);
+            model.addAttribute("projectId", project.getId());
+        }
+
+        return "item/compare";
     }
 
 }
